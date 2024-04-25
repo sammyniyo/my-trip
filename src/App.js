@@ -1,6 +1,6 @@
 import { Flex, SkeletonText, Box } from "@chakra-ui/react";
 import { useJsApiLoader } from "@react-google-maps/api";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import MapComponent from "./Component/Map/MapComonent";
 import RouteCalculator from "./Component/Route/RouteCalculator";
 
@@ -14,22 +14,23 @@ function App() {
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
+  const originRef = useRef(null);
+  const destinationRef = useRef(null);
 
-  
-
-  // when the page in not yet loaded
   if (!isLoaded) {
     return <SkeletonText />;
   }
 
   async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
+    if (originRef.current.value === "" || destinationRef.current.value === "") {
       return;
     }
+    // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
     const results = await directionsService.route({
       origin: originRef.current.value,
-      destination: destiantionRef.current.value,
+      destination: destinationRef.current.value,
+      // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     });
     setDirectionsResponse(results);
@@ -42,7 +43,7 @@ function App() {
     setDistance("");
     setDuration("");
     originRef.current.value = "";
-    destiantionRef.current.value = "";
+    destinationRef.current.value = "";
   }
 
   return (
@@ -62,6 +63,8 @@ function App() {
         distance={distance}
         duration={duration}
         map={map}
+        originRef={originRef}
+        destinationRef={destinationRef}
       />
     </Flex>
   );

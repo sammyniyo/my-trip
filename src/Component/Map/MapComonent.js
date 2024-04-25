@@ -1,5 +1,6 @@
 import { GoogleMap, Marker, DirectionsRenderer } from "@react-google-maps/api";
 
+//default map location
 const center = { lat: -1.9749971444910905, lng: 30.100814930091722 };
 
 function MapComponent({ directionsResponse }) {
