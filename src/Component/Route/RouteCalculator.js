@@ -6,14 +6,16 @@ import {
   HStack,
   Text,
   ButtonGroup,
-  Spinner,
+  Center,
 } from "@chakra-ui/react";
-import { FaLocationArrow, FaSearch, FaTimes } from "react-icons/fa";
+import {
+  FaLocationArrow,
+  FaSearch,
+  FaTimes,
+  FaPrint,
+  FaShare,
+} from "react-icons/fa";
 import { Autocomplete, useGeolocation } from "@react-google-maps/api";
-
-import { IconButton } from "@chakra-ui/react";
-import { FaLocationArrow } from "react-icons/fa";
-
 function RouteCalculator({
   calculateRoute,
   clearRoute,
@@ -22,8 +24,13 @@ function RouteCalculator({
   map,
   originRef,
   destinationRef,
-  isLoading,
+
+  // print and share map
 }) {
+  const printRoute = () => {
+    window.print();
+  };
+
   return (
     <Box
       p={4}
@@ -60,13 +67,7 @@ function RouteCalculator({
           </Autocomplete>
         </Box>
         <ButtonGroup>
-          <Button
-            colorScheme="blue"
-            isLoading={isLoading}
-            loadingText="Calculating"
-            type="submit"
-            onClick={calculateRoute}
-          >
+          <Button colorScheme="blue" type="submit" onClick={calculateRoute}>
             Calculate
           </Button>
           <IconButton
@@ -76,17 +77,23 @@ function RouteCalculator({
           />
         </ButtonGroup>
       </HStack>
-      <HStack
-        spacing={{ base: 2, md: 4 }}
-        mt={{ base: 2, md: 4 }}
-        justifyContent="space-between"
-      >
+      <HStack spacing={{ base: 2, md: 4 }} mt={{ base: 2, md: 4 }}>
         <Text fontSize="sm" color="gray.600">
           Distance: {distance || "N/A"}
         </Text>
         <Text fontSize="sm" color="gray.600">
           Duration: {duration || "N/A"}
         </Text>
+      </HStack>
+      <HStack spacing={{ base: 2, md: 4 }}>
+        <Button
+          colorScheme="blue"
+          leftIcon={<FaPrint />}
+          onClick={printRoute}
+          mt={4}
+        >
+          Print Route
+        </Button>
       </HStack>
     </Box>
   );

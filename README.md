@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+🚀 Getting Started With This Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this project locally, follow these steps:
 
-## Available Scripts
+Clone the Repository:
 
-In the project directory, you can run:
+👉🏻 git clone <https://github.com/sammyniyo/my-trip.git>
+Navigate to the Project Directory:
 
-### `npm start`
+cd to <project-directory>
+Install Dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+"dependencies": {
+"@chakra-ui/react": "^2.8.2",
+"@emotion/react": "^11.11.4",
+"@emotion/styled": "^11.11.5",
+"@fortawesome/fontawesome-free": "^6.5.2",
+"@google/maps": "^1.1.3",
+"@react-google-maps/api": "^2.19.3",
+"@testing-library/jest-dom": "^5.17.0",
+"@testing-library/react": "^13.4.0",
+"@testing-library/user-event": "^13.5.0",
+"axios": "^1.6.8",
+"framer-motion": "^11.1.7",
+"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"react-icons": "^5.1.0",
+"react-scripts": "5.0.1",
+"web-vitals": "^2.1.4"
+},
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+👉🏻 npm install
+Set Up Environment Variables:
+👉🏻 Make .env File
+Add your Google Maps API key to the .env file:
 
-### `npm test`
+👉🏻 REACT_APP_GOOGLE_MAPS_API_KEY=your-api-key-here
+Run the Project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm start
+View the Application:
+In your browser the project will run on http://localhost:3000 or other port if 3000 is busy.
 
-### `npm run build`
+👉🏻 Usage:
+Enter the origin and destination addresses.
+Click on "Calculate" to calculate the route.
+Click on "Print Route" to print the route details.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🛠️ Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React.js - Frontend library for building user interfaces.
+Chakra UI - Component library for React applications.
+React Google Maps API - Library for integrating Google Maps into React applications.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+📝 Notes
 
-### `npm run eject`
+Make sure you have Node.js installed on your machine.
+You need to obtain a Google Maps API key to use the Google Maps features. Follow the instructions provided by Google to obtain your API key.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+📧 Contact Me
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Feel free to reach out to me if you have any questions or suggestions! You can contact me via email or connect with me on social media.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📩 Email: samshakul@gmail.com / info@sammuhoza.pro
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🌐 Website: [sammuhoza.pro](http://sammuhoza.pro/)
 
-## Learn More
+🐦 Twitter: @Basamulee
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👔 LinkedIn: Samuel Niyomuhoza
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+📷 Instagram: @samuel.14.07
 
-### Code Splitting
+Happy Hacking ⚙️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+👉🏻 Here's a breakdown of how the route calculation likely happens:
 
-### Analyzing the Bundle Size
+## Google Maps Routing Algorithms:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Google Maps utilizes sophisticated routing algorithms that consider various factors like road network data, traffic patterns, and restrictions. These algorithms are constantly updated and improved by Google.
 
-### Making a Progressive Web App
+API Call and Response:
+The directionsService.route() function makes an API call to Google Maps servers with the provided origin and destination information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Google's internal routing engines calculate the optimal route based on their algorithms and return the results within the results object.
 
-### Advanced Configuration
+🫡 Distance and Duration Extraction:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The code snippet extracts the distance and duration information from the results object. These values are likely pre-calculated by Google's routing algorithms and included in the response.
